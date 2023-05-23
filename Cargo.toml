@@ -1,0 +1,15 @@
+[package]
+name = "spine_pbr"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+bevy = "0.10"
+bevy_spine = { git = "https://github.com/jabuwu/bevy_spine", rev = "11ed97314564e0edc5fb502bafb87fc6a22c7e5b" }
+asset_exporter.path = "crates/asset_exporter"
+
+[workspace]
+resolver = "2"
+members = [
+    "crates/asset_exporter"
+]

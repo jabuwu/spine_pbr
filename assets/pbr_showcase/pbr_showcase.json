@@ -1,0 +1,54 @@
+{
+"skeleton": {
+	"hash": "FEG5fz42gdc",
+	"spine": "4.1.21",
+	"x": -512,
+	"y": -256,
+	"width": 1024,
+	"height": 512,
+	"images": "./textures/",
+	"audio": ""
+},
+"bones": [
+	{ "name": "root", "scaleX": 0.5, "scaleY": 0.5 },
+	{ "name": "bone", "parent": "root", "x": -512 }
+],
+"slots": [
+	{ "name": "leather", "bone": "root", "attachment": "leather" },
+	{ "name": "paving_stones", "bone": "root", "attachment": "paving_stones" }
+],
+"skins": [
+	{
+		"name": "default",
+		"attachments": {
+			"leather": {
+				"leather": { "x": 512, "width": 1024, "height": 1024 }
+			},
+			"paving_stones": {
+				"paving_stones": {
+					"type": "mesh",
+					"uvs": [ 0, 1, 0, 0, 1, 0, 1, 1 ],
+					"triangles": [ 0, 1, 2, 0, 2, 3 ],
+					"vertices": [ 1, 1, -512, -512, 1, 1, 1, -512, 512, 1, 1, 1, 512, 512, 1, 1, 1, 512, -512, 1 ],
+					"hull": 4,
+					"edges": [ 0, 6, 0, 2, 2, 4, 4, 6 ],
+					"width": 1024,
+					"height": 1024
+				}
+			}
+		}
+	}
+],
+"animations": {
+	"animation": {
+		"bones": {
+			"bone": {
+				"rotate": [
+					{},
+					{ "time": 16.6333, "value": 360 }
+				]
+			}
+		}
+	}
+}
+}

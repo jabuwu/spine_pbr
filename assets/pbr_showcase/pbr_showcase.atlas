@@ -1,0 +1,20 @@
+
+pbr_showcase.png
+size: 1028,514
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+leather
+  rotate: false
+  xy: 1, 1
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
+paving_stones
+  rotate: false
+  xy: 515, 1
+  size: 512, 512
+  orig: 512, 512
+  offset: 0, 0
+  index: -1
