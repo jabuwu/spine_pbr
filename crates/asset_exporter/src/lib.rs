@@ -66,9 +66,9 @@ pub fn export() -> Result<()> {
     } = find_textures(textures_dir)?;
     {
         let color_textures = color_textures.clone();
-        cmd!(sh, "{TEXTURE_PACKER_EXE} {color_textures...} {normal_textures...} --scale 0.5 --sheet {output_dir}/pbr_showcase.png --data {output_dir}/pbr_showcase.atlas --format spine --pack-normalmaps --normalmap-suffix _n --normalmap-sheet {output_dir}/pbr_showcase_n.png").run()?;
+        cmd!(sh, "{TEXTURE_PACKER_EXE} {color_textures...} {normal_textures...} --scale 0.5 --disable-rotation --sheet {output_dir}/pbr_showcase.png --data {output_dir}/pbr_showcase.atlas --format spine --pack-normalmaps --normalmap-suffix _n --normalmap-sheet {output_dir}/pbr_showcase_n.png").run()?;
     }
-    cmd!(sh, "{TEXTURE_PACKER_EXE} {color_textures...} {roughness_textures...} --scale 0.5 --sheet {output_dir}/pbr_showcase.png --data {output_dir}/pbr_showcase.atlas --format spine --pack-normalmaps --normalmap-suffix _r --normalmap-sheet {output_dir}/pbr_showcase_r.png").run()?;
+    cmd!(sh, "{TEXTURE_PACKER_EXE} {color_textures...} {roughness_textures...} --scale 0.5 --disable-rotation --sheet {output_dir}/pbr_showcase.png --data {output_dir}/pbr_showcase.atlas --format spine --pack-normalmaps --normalmap-suffix _r --normalmap-sheet {output_dir}/pbr_showcase_r.png").run()?;
 
     Ok(())
 }
