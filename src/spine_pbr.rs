@@ -61,7 +61,7 @@ pub struct SpinePbrMaterial {
     pub normal_image: Handle<Image>,
 
     #[uniform(4)]
-    pub light_dir: Vec4,
+    pub light_position: Vec4,
 }
 
 impl Material2d for SpinePbrMaterial {
@@ -118,13 +118,8 @@ impl SpineMaterial for SpinePbrMaterial {
             let mut material = material.unwrap_or_else(|| Self::default());
             material.image = renderable_data.texture;
             material.normal_image = spine_pbr.normal_map.clone();
-            material.light_dir = Vec4::new(
-                cursor.world_position.x / 100.,
-                cursor.world_position.y / 100.,
-                3. + cursor.world_position.length() / 500.,
-                0.,
-            )
-            .normalize();
+            material.light_position =
+                Vec4::new(cursor.world_position.x, cursor.world_position.y, 0.1, 0.);
             Some(material)
         } else {
             None

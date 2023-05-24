@@ -19,7 +19,7 @@ var normal_texture: texture_2d<f32>;
 var normal_texture_sampler: sampler;
 
 @group(1) @binding(4)
-var<uniform> light_dir: vec4<f32>;
+var<uniform> light_position: vec4<f32>;
 
 fn linear_to_nonlinear(x: f32) -> f32 {
     if x <= 0.0 {
@@ -49,7 +49,11 @@ fn fragment(input: VertexOutput) -> @location(0) vec4<f32> {
         linear_to_nonlinear(normal.z)
     ) * vec3(2.0) - vec3(1.0));
 
-    let light = pow(dot(normal_xyz, light_dir.xyz), 4.0) * 2.;
+    let surface_to_light = normalize(light_position.xyz - input.world_position.xyz);
+    let distance = max(distance(light_position.xyz, input.world_position.xyz) / 100.0, 0.01);
+    let surface_dot = clamp(dot(normal_xyz, surface_to_light), 0.05, 1.0);
+
+    let light = clamp((surface_dot * (1.0 / distance)) * 5.0, 0.0, 1.0);
 
     return vec4(tex_color.rgb * light, tex_color.a);
 }
